@@ -17,6 +17,60 @@
       "content": "GET and POST are the most important methods of HTTP protocol",
       "date": "2022-1-17T19:20:14.298Z",
       "important": true
+    },
+    {
+      "id": 4,
+      "content": "this is a post test",
+      "date": "2022-08-27T15:52:46.790Z",
+      "important": true
+    },
+    {
+      "content": "testing axios.post ",
+      "date": "2022-08-27T15:53:59.095Z",
+      "important": false,
+      "id": 5
+    },
+    {
+      "content": "testing axios.post ",
+      "date": "2022-08-27T15:53:59.107Z",
+      "important": false,
+      "id": 6
+    },
+    {
+      "content": "testing axios post 2",
+      "date": "2022-08-27T15:56:03.088Z",
+      "important": false,
+      "id": 7
+    },
+    {
+      "content": "testing axios post 3",
+      "date": "2022-08-27T15:57:30.562Z",
+      "important": true,
+      "id": 8
+    },
+    {
+      "content": "testing axios post 4",
+      "date": "2022-08-27T15:57:51.384Z",
+      "important": false,
+      "id": 9
+    },
+    {
+      "content": "POST is used to add data to REST API",
+      "date": "2022-08-27T15:59:47.049Z",
+      "important": true,
+      "id": 10
+    },
+    {
+      "content": "testing post 5",
+      "date": "2022-08-27T16:03:57.659Z",
+      "important": false,
+      "id": 11
+    },
+    {
+      "id": 12,
+      "content": "testing post 6",
+      "date": "2022-08-27T16:06:26.916Z",
+      "important": false
     }
   ]
 }

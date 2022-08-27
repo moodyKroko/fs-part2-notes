@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Note from './components/Note'
 
+const baseURL = 'http://localhost:3001'
+
 function App() {
   const [notes, setNotes] = useState([])
   const [newNote, setNewNote] = useState('a new note...')
@@ -9,7 +11,7 @@ function App() {
 
   useEffect(() => {
     console.log('effect')
-    axios.get('http://localhost:3001/notes').then((response) => {
+    axios.get(`${baseURL}/notes`).then((response) => {
       console.log('promise fulfilled')
       setNotes(response.data)
     })
@@ -19,14 +21,16 @@ function App() {
   const addNote = (event) => {
     event.preventDefault()
     const noteObject = {
-      id: notes.length + 1,
       content: newNote,
       date: new Date().toISOString(),
       important: Math.random() < 0.5,
+      id: notes.length + 1,
     }
 
-    setNotes(notes.concat(noteObject))
-    setNewNote('')
+    axios.post(`${baseURL}/notes`, noteObject).then((response) => {
+      setNotes(notes.concat(noteObject))
+      setNewNote('')
+    })
   }
 
   const handleNoteChange = (event) => {
@@ -48,12 +52,18 @@ function App() {
       </div>
       <ul>
         {notesToShow.map((note) => (
-          <Note key={note.id} note={note} />
+          <Note
+            key={note.id}
+            note={note}
+          />
         ))}
       </ul>
 
       <form onSubmit={addNote}>
-        <input value={newNote} onChange={handleNoteChange} />
+        <input
+          value={newNote}
+          onChange={handleNoteChange}
+        />
         <button type='submit'>save</button>
       </form>
     </>
