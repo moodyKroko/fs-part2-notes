@@ -27,13 +27,13 @@
     {
       "content": "testing axios.post ",
       "date": "2022-08-27T15:53:59.095Z",
-      "important": false,
+      "important": true,
       "id": 5
     },
     {
       "content": "testing axios.post ",
       "date": "2022-08-27T15:53:59.107Z",
-      "important": false,
+      "important": true,
       "id": 6
     },
     {
@@ -45,7 +45,7 @@
     {
       "content": "testing axios post 3",
       "date": "2022-08-27T15:57:30.562Z",
-      "important": false,
+      "important": true,
       "id": 8
     },
     {
@@ -63,14 +63,14 @@
     {
       "content": "testing post 5",
       "date": "2022-08-27T16:03:57.659Z",
-      "important": false,
+      "important": true,
       "id": 11
     },
     {
       "id": 12,
       "content": "testing post 6",
       "date": "2022-08-27T16:06:26.916Z",
-      "important": false
+      "important": true
     }
   ]
 }
