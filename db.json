@@ -71,6 +71,18 @@
       "content": "testing post 6",
       "date": "2022-08-27T16:06:26.916Z",
       "important": true
+    },
+    {
+      "content": "testing post 7",
+      "date": "2022-08-27T20:12:11.694Z",
+      "important": false,
+      "id": 13
+    },
+    {
+      "content": "testing post 8",
+      "date": "2022-08-27T20:31:57.478Z",
+      "important": true,
+      "id": 14
     }
   ]
 }
