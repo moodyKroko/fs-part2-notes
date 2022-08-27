@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 import Note from './components/Note'
 import noteService from './services/NotesService'
-
-const baseURL = 'http://localhost:3001'
 
 function App() {
   const [notes, setNotes] = useState([])
