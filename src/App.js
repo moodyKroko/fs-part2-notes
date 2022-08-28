@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Note from './components/Note'
-import noteService from './services/NotesService'
+import NoteService from './services/NoteService'
 
 function App() {
   const [notes, setNotes] = useState([])
@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     console.log('effect')
-    noteService.getAll().then((initialNotes) => {
+    NoteService.getAll().then((initialNotes) => {
       setNotes(initialNotes)
       console.log('promise fulfilled')
     })
@@ -25,7 +25,7 @@ function App() {
       id: notes.length + 1,
     }
 
-    noteService.createNote(noteObject).then((createdNote) => {
+    NoteService.createNote(noteObject).then((createdNote) => {
       setNotes(notes.concat(createdNote))
       setNewNote('')
     })
@@ -40,7 +40,7 @@ function App() {
     const note = notes.find((note) => note.id === id)
     const changedNote = { ...note, important: !note.important }
 
-    noteService
+    NoteService
       .updateNoteImportance(id, changedNote)
       .then((updatedNote) => {
         setNotes(notes.map((note) => (note.id !== id ? note : updatedNote)))
@@ -78,7 +78,7 @@ function App() {
           value={newNote}
           onChange={handleNoteChange}
         />
-        <button type='submit'>save</button>
+        <button type="submit">save</button>
       </form>
     </>
   )
