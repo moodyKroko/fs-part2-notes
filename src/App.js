@@ -40,8 +40,7 @@ function App() {
     const note = notes.find((note) => note.id === id)
     const changedNote = { ...note, important: !note.important }
 
-    NoteService
-      .updateNoteImportance(id, changedNote)
+    NoteService.updateNoteImportance(id, changedNote)
       .then((updatedNote) => {
         setNotes(notes.map((note) => (note.id !== id ? note : updatedNote)))
       })
