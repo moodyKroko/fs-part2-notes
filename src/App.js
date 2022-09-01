@@ -10,13 +10,18 @@ function App() {
   const [errorMessage, setErrorMessage] = useState(null)
 
   useEffect(() => {
-    console.log('effect')
     NoteService.getAll().then((initialNotes) => {
       setNotes(initialNotes)
-      console.log('promise fulfilled')
     })
   }, [])
-  console.log('render', notes.length, 'notes')
+
+  const notify = (message, type = 'info') => {
+    setErrorMessage({ message, type })
+
+    setTimeout(() => {
+      setErrorMessage(null)
+    }, 5000)
+  }
 
   const addNote = (event) => {
     event.preventDefault()
@@ -30,11 +35,11 @@ function App() {
     NoteService.createNote(noteObject).then((createdNote) => {
       setNotes(notes.concat(createdNote))
       setNewNote('')
+      notify('Added a new note')
     })
   }
 
   const handleNoteChange = (event) => {
-    console.log(event.target.value)
     setNewNote(event.target.value)
   }
 
@@ -45,15 +50,11 @@ function App() {
     NoteService.updateNoteImportance(id, changedNote)
       .then((updatedNote) => {
         setNotes(notes.map((note) => (note.id !== id ? note : updatedNote)))
+        notify('Note importance changed Success')
       })
       .catch((error) => {
-        setErrorMessage(
-          `Note '${note.content}' was already removed from the server`
-        )
-        setTimeout(() => {
-          setErrorMessage(null)
-        }, 5000)
         setNotes(notes.filter((note) => note.id !== id))
+        notify(`Note '${note.content}' was already removed from server`)
       })
   }
 
@@ -64,7 +65,7 @@ function App() {
   return (
     <>
       <h1> Notes </h1>
-      <Notification message={errorMessage} />
+      <Notification notifications={errorMessage} />
 
       <div>
         <button onClick={() => setShowAll(!showAll)}>
