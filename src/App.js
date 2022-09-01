@@ -5,7 +5,7 @@ import Notification from './components/Notification'
 
 function App() {
   const [notes, setNotes] = useState([])
-  const [newNote, setNewNote] = useState('a new note...')
+  const [newNote, setNewNote] = useState('')
   const [showAll, setShowAll] = useState(true)
   const [errorMessage, setErrorMessage] = useState(null)
 
@@ -54,7 +54,7 @@ function App() {
       })
       .catch((error) => {
         setNotes(notes.filter((note) => note.id !== id))
-        notify(`Note '${note.content}' was already removed from server`)
+        notify(`Note '${note.content}' was already removed from server`, 'error')
       })
   }
 
@@ -86,6 +86,7 @@ function App() {
         <input
           value={newNote}
           onChange={handleNoteChange}
+          placeholder="a new note..."
         />
         <button type="submit">save</button>
       </form>
