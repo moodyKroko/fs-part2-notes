@@ -35,7 +35,7 @@ function App() {
     NoteService.createNote(noteObject).then((createdNote) => {
       setNotes(notes.concat(createdNote))
       setNewNote('')
-      notify('Added a new note')
+      notify(`Added ${noteObject.content}`)
     })
   }
 
@@ -50,7 +50,7 @@ function App() {
     NoteService.updateNoteImportance(id, changedNote)
       .then((updatedNote) => {
         setNotes(notes.map((note) => (note.id !== id ? note : updatedNote)))
-        notify('Note importance changed Success')
+        notify('Note importance successfully changed')
       })
       .catch((error) => {
         setNotes(notes.filter((note) => note.id !== id))
