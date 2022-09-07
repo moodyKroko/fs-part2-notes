@@ -35,6 +35,8 @@ function App() {
       setNotes(notes.concat(createdNote))
       setNewNote('')
       notify(`Added ${noteObject.content}`)
+    }).catch(error => {
+        notify(`Error: ${error.response.data.error}`, 'error')
     })
   }
 
